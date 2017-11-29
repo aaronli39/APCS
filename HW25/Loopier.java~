@@ -1,0 +1,26 @@
+public class Loopier {
+    public static void populate(int[] nums) {
+	for (int i = 0; i < nums.length; i ++) {
+	    nums[i] = (int) Math.random() * 10;
+	} return nums;
+    }
+
+    public static String stringify(int[] nums) {
+	String out = "[";
+	for (int i = 0; i < nums.length; i++) {
+	    out += nums[i] + ", ";
+	} out.substring(out.length() - 1, out.length) = "";
+	return out + "]";
+    }
+
+    public static int linSearch(int[] a, int target) {
+	for (int i = 0; i < a.length; i++) {
+	    if (a[i] == target) {
+		index = i;
+		return i;
+	    }
+	} return index;
+    }
+
+    public linSearchR(int[] a, int target) {
+	if (a[a.length

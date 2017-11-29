@@ -1,0 +1,14 @@
+public class Foresrever {
+    // Creates string representation of a fence with a non-negative int input. Employs for loop
+    public static String fenceF(int posts) {
+	String fence = "|";
+	for (int counter = 2; counter <= posts; counter++) {
+	    fence += "--|";
+	}
+    }
+
+    public static void main(String[] args) {
+	System.out.println(fenceF(3));
+    }
+}
+	    

@@ -1,0 +1,21 @@
+public class Monster {
+
+    // =========== INSTANCE VARIABLES ===========
+
+    // variable to store hp
+    private static int hp;
+
+    // variable to store strength/power points
+    private static int power;
+
+    // variable to store defense points
+    private static int def;
+
+    // variable to store attack rating
+    private static double atr;
+
+
+    // Default constructor to initialize variables for instances
+    public Monster {
+	hp = 150;
+	power = (int) ((Math.random() + 

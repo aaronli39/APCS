@@ -1,0 +1,30 @@
+public class Commafier {
+    public static String commafyF(int x) {
+	String input = x.toString();
+	String output = "";
+	if (input.length() <= 3) {
+	    return input;
+	} else {
+	    if ((input.length() % 3) == 0) {
+		output = input.substring(0,4);
+		input = input.substring(4);
+		for (int jump = ((input.length() / 3) - 1); jump > 0; jump--) {
+		    output = "," + input.substring(0, 4);
+		    input = input.substring(4);
+		}
+	    } else {
+		output = input.substring(0, (input.length() % 3));
+		input = input.substring(input.length() % 3);
+		for (int hop = (input.length() / 3); jump > 0; jump--) {
+		    output = "," + input.substring(0, 4);
+		    input = input.substring(4);
+		}
+	    }
+	}
+	return output;
+    }
+
+    public static void main(String[] args) {
+	System.out.println(commafyF(1000));
+    }
+}

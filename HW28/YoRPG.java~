@@ -1,0 +1,72 @@
+public class YoRPG {
+
+    // ========== INSTANCE VARIABLES ========== 
+    
+    // variable to store character name
+    private String name;
+    // variable to store health points
+    private int hp;
+    // variable to store strength or power attribute
+    private int power;
+    // variable to store defense points
+    private int def;
+    // variable to store attack rating
+    private double atr;
+
+    // variable to store original strength or power attribute
+    private int origpower;
+    // variable to store original defense points
+    private int origdef;
+
+    
+    // Overloaded Constructor takes name input for character name
+    public YoRPG(String nam) {
+	name = nam;
+	hp = 50;
+	power = 10;
+	def = 8;
+	atr = 0.1;
+    }
+
+
+    // ========== METHODS ==========
+
+    // returns whether or not character is alive. 
+    public static boolean isAlive() {
+	return hp > 0; // If hp > 0: alive, thus return true. Else return false
+    }
+
+    // returns integer value of defense points
+    public static String getDefense() {
+	return def;
+    }
+
+    // decrease hp by input amount
+    public static void lowerHP(int amt) {
+	hp -= amt;
+    }
+
+    // simulates an attack on a monster by character
+    public static void attack(Monster rawr) {
+	int dmg = (int) ((power * atr) - mondef);
+	monhp -= dmg;
+	System.out.println("You dealt " + dmg + "" + " damage to monster. \n");
+    }
+
+    // set character to special attack stance: defense is decreased and attack is increased
+    public static void specialize() {
+	origdef = def; // stores defense points for resetting
+	origpower = power; // stores strength attribute for resetting
+	
+	def -= def * 0.3; // lowers defense by a percentage
+	System.out.println("Special attack prepared: \n" + "Defense lowered to: " + def + " .");
+	power *= 2; // doubles strength attribute
+	System.out.println("Attack increased to: " + power + " .\n"); 
+    }
+
+    // returns to normal attack stance
+    public static void normalize() {
+	power = origpower; // strength attribute is reset
+	def = origdef; // defense points reset
+    }
+}
