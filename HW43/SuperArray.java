@@ -1,7 +1,7 @@
-// Clyde "Thluffy" Sinclair
-// APCS1 pd0
-// HW43 -- adhering to a published standard (implementing an interface)
-// 2017-11-30r
+// Aaron Li
+// APCS1 pd8
+// HW43 -- Array of Titanium
+// 2017-11-29
 
 /***************************
 * class SuperArray version 3.0
