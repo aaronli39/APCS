@@ -65,9 +65,9 @@ public class ALTester { // Class ALTester
 
     // Print sorted() method tests:
     // Should return: false, true, false
-    System.out.println(sorted(moo));
     System.out.println(sorted(foo));
     System.out.println(sorted(too));
+    System.out.println(sorted(moo));
   } // end of main method
 
 } // end of class ALTester
