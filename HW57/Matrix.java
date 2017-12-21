@@ -62,15 +62,9 @@ public class Matrix
 
 
   //return true if this matrix is empty, false otherwise
-  private boolean isEmpty()
+  private boolean isEmpty(int r, int c)
   {
-    // Simply make a new Matrix foo with same dimensions, this way
-    // you know that it is completely empty because all elements
-    // are initialized as null.
-    Matrix foo = new Matrix(this.size());
-
-    // Compare calling matrix with foo, if they're equal, return true, else false.
-    return (this.equals(foo));
+    return (get(r, c) == null);
   }
 
 
@@ -196,7 +190,7 @@ public class Matrix
     System.out.println("\nPrinting empty Matrix moo..." + moo);
 
     // Testing isEmpty method
-    System.out.println("\nIs Matrix moo empty: " + moo.isEmpty() + "\n");
+    System.out.println("\nIs Matrix moo empty: " + moo.isEmpty(1, 3) + "\n");
 
     // Populate moo to test other methods
     System.out.println("\nPopulating moo... ");
