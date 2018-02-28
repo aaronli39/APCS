@@ -1,0 +1,15 @@
+Aaron Li
+APCS2 pd8
+HW09 -- Yaaasss Queens
+2018-02-26
+
+For 2x2, the case is unsolvable because a single queen takes up all possible moves. For
+3x3, it is also unsolvable because there is no room to put the third queen without overlapping.
+For 4x4, there are two solutions with solvable cases that I have found. I believe this is
+the smallest board where the cases are solvable, because 5x5 was also solvable with 4 solutions.
+6x6 was solvable with 4 solutions. 7x7, and 8x8 as well with multiple solutions. There is a
+unique layout for each case other than 2x2 - 4x4. I believe the minimum size must be 5x5 because
+this is when u can start using the knight chess piece's move to utilize every row and column.
+Sometimes, the first queen should be placed at (1, 1), and other times, for even board
+sizes, you can solve the case by placing the first queen at (1, 2), and the second queen at
+(2, 1). Then, you use the knight moves to get the remaining queens.
