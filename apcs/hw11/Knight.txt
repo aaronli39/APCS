@@ -1,0 +1,9 @@
+Aaron Li
+APCS2 pd8
+HW11 -- Get On the Bus
+2018-02-28
+
+     The knight should start at 1, 1. Then, the knight will analyze all the moves/spaces it
+can move to. It will take one route, and follow it through the end, and whenever there are no
+available moves, backtrack one move, and take another route, and so on. Keep backtracking whenever
+a move doesn't lead to a solvable configuration. 

@@ -83,6 +83,12 @@ public class QueenBoard
           } return true;
      }
 
+     private boolean solveH(int col ) {
+          if (col >= _board.length) {
+               return;
+          } if (_board.length % 2 == 1 && col = 0) {
+               _board[0][col] = 1;
+          }
      public void printSolution()
      {
           String output = "\n";
