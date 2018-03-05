@@ -26,6 +26,8 @@ public class QueenBoard
      * If no solution, board is filled with 0's,
      * returns false.
      */
+
+     /*
      public boolean solve()
      {
           int count = 0;
@@ -61,19 +63,20 @@ public class QueenBoard
                }
           } return false;
      }
-
+     */
 
      /**
      *Helper method for solve.
      Returns: true if you can place a queen in specified column
      Returns: false if you cannot place a queen in specified column
      */
+     /*
      private boolean solveH( int col )
      {
           int count = 0;
           for (int i = 0; i < _board.length; i++) {
                if (_board[i][col] == 1 ) {
-                    return false;
+                    rn eturn false;
                } if (_board[i][col] < 0) {
                     count++;
                }
@@ -82,7 +85,9 @@ public class QueenBoard
                return false;
           } return true;
      }
+     */
 
+<<<<<<< HEAD
      private boolean solveH(int col ) {
           if (col >= _board.length) {
                return;
@@ -93,15 +98,59 @@ public class QueenBoard
      {
           String output = "\n";
           if (this.solve() == true) {
+=======
+     /***
+     * precondition: board is filled with 0's only.
+     * postcondition:
+     * If a solution is found, board shows position of N queens,
+     * returns true.
+     * If no solution, board is filled with 0's,
+     * returns false.
+     */
+     public boolean solve() {
+          if (solveH(0) == true) {
+>>>>>>> d9371cffc758396c68b13501d454bce87f939763
                for (int i = 0; i < _board.length; i++) {
-                    for (int z = 0; z < _board.length; z++) {
-                         if (_board[i][z] <= 0) {
-                              output += "_ ";
-                         } if (_board[i][z] == 1) {
-                              output += "Q ";
+                    for (int x = 0; x < _board.length; x++) {
+                         if (_board[i][x] == 1) {
+                              System.out.println("(" + i + ", " + x + ")\n");
+                              break;
                          }
-                    } output += "\n";
+                    }
+               } return true;
+          } return false;
+     }
+
+     /**
+     *Helper method for solve.
+     Returns: true if there is a solution
+     Returns: false if there is no solution
+     */
+     private boolean solveH(int col) {
+          if (col >= _board.length) {
+               return true;
+          } for (int i = 0; i < _board.length; i++) {
+               if (_board[i][col] == 0) {
+                    addQueen(i, col);
+
+                    if (solveH(col + 1) == true) {
+                         return true;
+                    } removeQueen(i, col);
                }
+          } return false;
+     }
+
+     public void printSolution()
+     {
+          String output = "\n";
+          for (int i = 0; i < _board.length; i++) {
+               for (int z = 0; z < _board.length; z++) {
+                    if (_board[i][z] <= 0) {
+                         output += "_ ";
+                    } if (_board[i][z] == 1) {
+                         output += "Q ";
+                    }
+               } output += "\n";
           } System.out.println(output);
      }
 
@@ -181,18 +230,21 @@ public class QueenBoard
      //main method for testing...
      public static void main( String[] args )
      {
+          // 5x5 board
           QueenBoard b = new QueenBoard(5);
           System.out.println(b);
-          System.out.println(b.solveH(0));
           System.out.println(b.solve());
           System.out.println(b);
           b.printSolution();
 
-          QueenBoard c = new QueenBoard(7);
+
+          // 8x8 board
+          QueenBoard c = new QueenBoard(8);
           System.out.println(c);
-          System.out.println(c.solveH(0));
           System.out.println(c.solve());
           System.out.println(c);
+          c.printSolution();
+
      }
 
 }//end class
