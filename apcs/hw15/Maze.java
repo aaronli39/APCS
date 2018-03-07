@@ -1,3 +1,9 @@
+// Aaron Li
+// APCS2 pd8
+// HW15 -- Thinkers of the Corn
+// 2018-03-06
+
+
 /***
 * SKEELTON for class
 * MazeSolver
@@ -107,26 +113,55 @@ class MazeSolver
      * @param y starting y-coord, measured from top
      *********************************************/
      public void solve( int x, int y ) {
+          delay(400); // slow it down enough to be followable
 
-          delay(50); //slow it down enough to be followable
+          // primary base case
+          if ( solved == true) {
+               System.out.println(this);
+               System.exit(0);
+          }
+          // other base case(s)...
 
-          //primary base case
-          if ( /* YOUR AMAZEING CODE HERE */ ) {
-               /* YOUR AMAZEING CODE HERE */
+          // if the current index is the exit
+          else if ( maze[x][y] == EXIT) {
+               solved = true;
+               System.out.println("MAZE SOLVED!!!"); // msg to display success
+               delay(1000); // delay to read msg
+               System.out.println(this);
           }
-          //other base case(s)...
-          else if ( /* YOUR AMAZEING CODE HERE */ ) {
-               /* YOUR AMAZEING CODE HERE */
+          // if the current index is not a path, exit this recursive call
+          else if (maze[x][y] != PATH) {
+               return;
           }
-          else if ( /* YOUR AMAZEING CODE HERE */ ) {
-               /* YOUR AMAZEING CODE HERE */
-          }
-          else if ( /* YOUR AMAZEING CODE HERE */ ) {
-               /* YOUR AMAZEING CODE HERE */
-          }
-          //recursive reduction
+
+          // recursive reduction
           else {
-               /* YOUR AMAZEING CODE HERE */
+               // sets the current position as visited
+               maze[x][y] = VISITED_PATH;
+               // print coordinates of location for reference
+               System.out.println(x + "," + y);
+               // refresh
+               System.out.println(this);
+
+               // arrays to store possible moves
+               int[] xcor = {1, -1, 0, 0};
+               int[] ycor = {0, 0, 1, -1};
+
+               // for loop to test each of the 4 moves: up down left right
+               for (int i = 0; i < 4; i++) {
+                    if (maze[x + xcor[i]][y + ycor[i]] == (PATH) // if move leads to a path
+                    || maze[x + xcor[i]][y + ycor[i]] == (EXIT) // or move leads to an exit
+                    || maze[x + xcor[i]][y + ycor[i]] == (HERO)) {
+                         solve(x + xcor[i], y + ycor[i]); // recursive call to keep moving
+                    }
+               }
+
+
+               // at this point, none of the moves worked, so go back to starting
+               // position so you can try another way
+               solve(x, y);
+               // refresh
+               System.out.println(this);
           }
      }
 
@@ -149,28 +184,28 @@ public class Maze
 
                //display maze
                System.out.println( ms );
-               
+
                //drop hero into the maze (coords must be on path)
                //comment next line out when ready to randomize startpos
-               ms.solve( 4, 3 );
+               // ms.solve( 4, 3 );
 
-               /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               // /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                //drop our hero into maze at random location on path
                //the Tim Diep way:
                Random r = new Random();
                int startX = r.nextInt( 80 );
                int startY = r.nextInt( 25 );
                while ( !ms.onPath(startX,startY) ) {
-               startX = r.nextInt( 80 );
-               startY = r.nextInt( 25 );
-          }
+                    startX = r.nextInt( 80 );
+                    startY = r.nextInt( 25 );
+               }
 
-          ms.solve( startX, startY );
-          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-     } catch( Exception e ) {
-          System.out.println( "Error reading input file." );
-          System.out.println( "Usage: java Maze <filename>" );
+               ms.solve( startX, startY );
+               // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+          } catch( Exception e ) {
+               System.out.println( "Error reading input file." );
+               System.out.println( "Usage: java Maze <filename>" );
+          }
      }
-}
 
 }//end class Maze

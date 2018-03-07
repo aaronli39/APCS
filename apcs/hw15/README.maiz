@@ -1,0 +1,21 @@
+USAGE OF THIS FOLDER:
+
+Thinkers, place your mazes here!
+
+1. 
+$ mkdir pX_TeamName_AlastF-BlastF-ClastF 
+(camelCase, no "team")
+
+
+2. 
+$ cd [your team folder]
+
+
+3. 
+Save your clever maze creations into your folder.
+* 1 maze / file
+* .dat extension
+* adhere to symbol conventions in maze skeleton in closet
+* include at least 1 each: easy, medium, hard
+
+
