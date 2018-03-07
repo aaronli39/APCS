@@ -103,7 +103,7 @@ class TourFinder
      *********************************************/
      public void findTour( int x, int y, int moves )
      {
-          // delay(50); //slow it down enough to be followable
+          delay(50); //slow it down enough to be followable
           if (solved) System.exit(0);
 
           //primary base case: tour completed
@@ -112,14 +112,13 @@ class TourFinder
           }
           //other base case: stepped off board or onto visited cell
           if ( board[x][y] != 0 ) {
-               solved = false;
+               return;
           }
           //otherwise, mark current location
           //and recursively generate tour possibilities from current pos
           else {
-               System.out.println("" + x + "," + y);
-               System.out.println("" + sideLength);
-
+               board[x][y] = moves;
+               System.out.println(this);
                delay(10); //uncomment to slow down enough to view
 
                /*======================================
@@ -132,58 +131,25 @@ class TourFinder
                . h . a .
                ======================================*/
                // right and down
-               if (valid(x + 1, y + 2)) {
-                    board[x][y] = moves;
-                    System.out.println(this.toString());
-                    findTour(x + 1, y + 2, moves + 1);
-               } board[x][y] = 0;
+               findTour(x + 1, y + 2, moves + 1);
                // left and down
-               if (valid(x - 1, y + 2)) {
-                    board[x][y] = moves;
-                    System.out.println(this.toString());
-                    findTour(x - 1, y + 2, moves + 1);
-               } board[x][y] = 0;
+               findTour(x - 1, y + 2, moves + 1);
                // down and right
-               if (valid(x + 2, y + 1)) {
-                    board[x][y] = moves;
-                    System.out.println(this.toString());;
-                    findTour(x + 2, y + 1, moves + 1);
-               } board[x][y] = 0;
+               findTour(x + 2, y + 1, moves + 1);
                // up and left
-               if (valid(x - 2, y - 1)) {
-                    board[x][y] = moves;
-                    System.out.println(this.toString());
-                    findTour(x - 2, y - 1, moves + 1);
-               } board[x][y] = 0;
+               findTour(x - 2, y - 1, moves + 1);
                // right and up
-               if (valid(x + 1, y - 2)) {
-                    board[x][y] = moves;
-                    System.out.println(this.toString());
-                    findTour(x + 1, y - 2, moves + 1);
-               } board[x][y] = 0;
+               findTour(x + 1, y - 2, moves + 1);
                // left and up
-               if (valid(x - 1, y - 2)) {
-                    board[x][y] = moves;
-                    System.out.println(this.toString());
-                    findTour(x - 1, y - 2, moves + 1);
-               } board[x][y] = 0;
+               findTour(x - 1, y - 2, moves + 1);
                // up and right
-               if (valid(x + 2, y - 1)) {
-                    board[x][y] = moves;
-                    System.out.println(this.toString());
-                    findTour(x + 2, y - 1, moves + 1);
-               } board[x][y] = 0;
+               findTour(x + 2, y - 1, moves + 1);
                // down and left
-               if (valid(x - 2, y + 1)) {
-                    board[x][y] = moves;
-                    System.out.println(this.toString());
-                    findTour(x - 2, y + 1, moves + 1);
-               }
+               findTour(x - 2, y + 1, moves + 1);
 
                //If made it this far, path did not lead to tour, so back up.
                board[x][y] = 0;
-
-               System.out.println( this ); //refresh screen
+               System.out.println(this);
           }
      }//end findTour()
 

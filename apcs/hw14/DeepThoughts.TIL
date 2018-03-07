@@ -1,0 +1,28 @@
+The Baconators - George Liang, Aaron Li, Jackie Li
+APCS2 pd08
+HW14 -- 
+2018-03-06
+
+Section Uno:
+Q1: No an open tour cannot always be found. As demonstrated in class, in a 4x4 
+starting from top left, an open tour was not found. Other starting points on the same
+board might still have an open tour.
+
+Q2:Closed tours also aren't always found because the board can be too small for instance,
+or the starting position just has no closed tour solutions.
+
+Q3:As mentioned in class, SOP statements will cost a lot of time. There's also the fact
+that almost every move is considered in a nights tour. Execution time at least based on 
+our data remained relatively the same for n increase of board but there are probably
+external factors lowering the accuracy of time measurement.
+
+Q4:It's best to verify that the algorithm with SOP statements works first, then commenting
+out those SOP statements and measuring the true time it takes to just solve for a knights 
+tour.
+
+Maze Algorithm 
+1. From starting position test moves that go forward,back,left, and right.
+2. If the maze runner runs into a wall, backtrack to the most recent decision.
+3. Check to see if a decision for an alternate path could be made. If it can be made
+go the alternate path, otherwise backtrack even further.
+4. Repeat until maze is solved.
