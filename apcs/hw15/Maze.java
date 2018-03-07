@@ -15,7 +15,12 @@
 * (mazefile is ASCII representation of maze, using symbols below)
 *
 * ALGORITHM for finding exit from starting position:
-*  <INSERT YOUR SUMMARY OF ALGO HERE>
+*
+*   Check each of the possible moves from the starting location: up, down, left, right.
+*   If a move will result in a path or an exit, make that move, and make the current
+*   index as visited. Repeat this step until a dead end, at which return to the starting
+*   location and try another move, because the previous move did not lead to a solution.
+*   repeat till solution is found. Periods represent the visited path of the marker.
 ***/
 
 //enable file I/O
