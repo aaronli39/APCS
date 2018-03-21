@@ -18,6 +18,10 @@ public class LList implements List {
 
      // takes index input, returns the cargo of the node at that index
      public String get(int i) {
+          if ( i < 0 || i >= size() ) {
+               throw new IndexOutOfBoundsException();
+          }
+
           LLNode desired = first;
           for(int x = 0; x < i; x++) {
                desired = desired.getNext();
@@ -28,11 +32,17 @@ public class LList implements List {
      // sets cargo of node at index to input cargo
      // returns the cargo at index
      public String set(int i, String inp) {
+          if ( i < 0 || i >= size() ) {
+               throw new IndexOutOfBoundsException();
+          }
+
           LLNode desired = first;
           for (int x = 0; x < i; x++) {
                desired = desired.getNext();
-          } desired.setCargo(inp);
-          return desired.getCargo();
+          } String orig = desired.getCargo();
+
+          desired.setCargo(inp);
+          return orig;
      }
 
      // returns size of linked list
@@ -42,13 +52,9 @@ public class LList implements List {
 
      // adds a node with cargo of input String, and returns true
      public boolean add(String inp) {
-          if (first == null) {
-               first = new LLNode(inp);
-          } else {
-               LLNode desired = new LLNode(inp);
-               .setNext(desired);
-          }
-          size += 1;
+          LLNode temp = new LLNode(inp, first);
+          first = temp;
+          size++;
           return true;
      }
 
