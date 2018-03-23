@@ -60,7 +60,7 @@ public class LLNode
      // override inherited toString
      public String toString()
      {
-          return car + " -> " + cdr; // use "->" to denote the next node
+          return car + " <- " + cdr; // use "->" to denote the next node
      }
 
      //main method for testing

@@ -58,43 +58,53 @@ public class LList implements List {
           return true;
      }
 
+     // adds a node with cargo of input String at specified index
      public boolean add(int i, String inp) {
           if (i < 0 || i > size()) throw new IndexOutOfBoundsException();
-
-          LLNode temp = first;
+          LLNode temp = first; // alias
+          // new LLNode with cargo of input string, pointer to null
           LLNode newOne = new LLNode(inp, null);
+          // if the specified index is 0, then we just need to invoke the
+          // regular add method
           if (i == 0) {
                add(inp);
                return true;
           }
-
+          // walk up to the node preceding the specified node, point the new node
+          // to the node after the specified index, and then set the preceding to
+          // point to the new node
           for (int x = 0; x < i - 1; x++) {
                temp = temp.getNext();
           } newOne.setNext(temp.getNext());
           temp.setNext(newOne);
-          size++;
+          size++; // don't forget to increment size!
           return true;
      }
 
+     // removes a LLNode at the specified index
      public String remove(int x) {
           if (x < 0 || x > size()) throw new IndexOutOfBoundsException();
-          LLNode temp = first;
-          String out = "";
-
+          LLNode temp = first; // alias
+          String out = ""; // output String
+          // if the specified index is 0, then we just need set first node to
+          // the one after it
           if (x == 0) {
                out = first.getCargo();
                first = first.getNext();
                size--;
                return out;
           }
-
+          // walk up to the node preceding the specified index, set its pointer to
+          // the node after the specified index
           for (int i = 0; i < x - 1; i++) {
                temp = temp.getNext();
           } out = temp.getNext().getCargo();
           temp.setNext(temp.getNext().getNext());
-          size--;
+          size--; // don't forget to decrement size!
           return out;
      }
+
+     // overwrite default toString method
      public String toString() {
           return first.toString();
      }
