@@ -1,7 +1,7 @@
-// Aaron Li
+// Team Wampanoag -- Aaron Li, Collin Hosking
 // APCS2 pd8
-// HW21c -- Rockin' Through the Night
-// 2018-03-19
+// HW23 -- Give and Take
+// 2018-03-22
 
 public class LList implements List {
 
