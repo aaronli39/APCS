@@ -12,12 +12,12 @@ HW24 -- On the DLL
 * new in v2: add-at-index, remove
 *****************************************************/
 
-public class LList<T> implements List //your List interface must be in same dir
+public class LList<T> implements List<T> //your List interface must be in same dir
 {
 
      //instance vars
-     private DLLNode _head;
-     private DLLNode _tail;
+     private DLLNode<T> _head;
+     private DLLNode<T> _tail;
      private int _size;
 
      // constructor -- initializes instance vars
@@ -35,7 +35,7 @@ public class LList<T> implements List //your List interface must be in same dir
      {
           //DLLNode<T> tmp = new DLLNode<T>( newVal, null, _head );
 
-          DLLNode tmp;
+          DLLNode<T> tmp;
 
           if (_size == 0) {
                tmp = new DLLNode(newVal, null, null);
@@ -49,18 +49,17 @@ public class LList<T> implements List //your List interface must be in same dir
           }
 
           _size++;
-          System.out.println("\t\t" + tmp.getCargo() + " points to " + tmp.getPrev() + " and " + tmp.getNext());
           return true;
      }
 
 
-     public String get( int index )
+     public T get( int index )
      {
           if ( index < 0 || index >= size() )
           throw new IndexOutOfBoundsException();
 
-          String retVal;
-          DLLNode tmp = _head; //create alias to head
+          T retVal;
+          DLLNode<T> tmp = _head; //create alias to head
 
           //walk to desired DLLNode<T>
           for( int i=0; i < index; i++ )
@@ -72,12 +71,12 @@ public class LList<T> implements List //your List interface must be in same dir
      }
 
 
-     public String set( int index, Object newVal )
+     public T set( int index, T newVal )
      {
           if ( index < 0 || index >= size() )
           throw new IndexOutOfBoundsException();
 
-          String retStr;
+          T retStr;
 
           //head and tail cases
           if (index == 0) {
@@ -89,7 +88,7 @@ public class LList<T> implements List //your List interface must be in same dir
                _tail.setCargo(newVal);
           }
           else { //we gotta walk it
-               DLLNode tmp;
+               DLLNode<T> tmp;
                if (index < size()/2) {
                     tmp = _head;
                     for (int i = 0; i < index; i++) {
@@ -122,8 +121,8 @@ public class LList<T> implements List //your List interface must be in same dir
           if ( index < 0 || index >= size() )
           throw new IndexOutOfBoundsException();
 
-          DLLNode tmp;
-          DLLNode newNode;
+          DLLNode<T> tmp;
+          DLLNode<T> newNode;
 
           if (index == 0) {
                add(newVal);
@@ -147,17 +146,16 @@ public class LList<T> implements List //your List interface must be in same dir
 
           _size++;
 
-          System.out.println("\t\t" + tmp.getCargo() + " points to " + tmp.getPrev() + " and " + tmp.getNext());
      }
 
 
      //remove DLLNode<T> at pos index, return its cargo
-     public String remove( int index ) {
+     public T remove( int index ) {
 
           if ( index < 0 || index >= size() )
           throw new IndexOutOfBoundsException();
 
-          String retStr;
+          T retStr;
 
           if (_size == 1) {
                retStr = _head.getCargo();
@@ -176,7 +174,7 @@ public class LList<T> implements List //your List interface must be in same dir
                _tail.setNext(null); //kill the pointer
           }
           else { //this means we gotta walk our temp
-               DLLNode tmp;
+               DLLNode<T> tmp;
                if (index < size()/2) { //index in first half of LList
                     tmp = _head;
                     for (int i = 0; i < index - 1; i++) {

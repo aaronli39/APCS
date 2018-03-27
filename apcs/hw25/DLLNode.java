@@ -7,10 +7,10 @@
 
 public class DLLNode<T>
 {
-     private Object _cargo;    //cargo may only be of type String
-     private T _nextNode, _prevNode; //pointers to next, prev Ts
+     private T _cargo;    //cargo may only be of type String
+     private DLLNode _nextNode, _prevNode; //pointers to next, prev Ts
 
-     public DLLNode(Object carg, T prev, T next) {
+     public DLLNode(T carg, DLLNode prev, DLLNode next) {
           this._cargo = carg;
           this._nextNode = next;
           this._prevNode = prev;
@@ -22,31 +22,31 @@ public class DLLNode<T>
           return _cargo;
      }
 
-     public T getNext() {
+     public DLLNode<T> getNext() {
           return _nextNode;
      }
 
-     public T getPrev() {
+     public DLLNode<T> getPrev() {
           return _prevNode;
      }
 
      //--------------^  ACCESSORS  ^--------------
 
      //--------------v  MUTATORS  v--------------
-     public T setCargo(Object inp) {
-          String orig = _cargo;
+     public T setCargo(T inp) {
+          T orig = _cargo;
           _cargo = inp;
           return orig;
      }
 
-     public T setNext(T inp) {
-          T orig = _nextNode;
+     public DLLNode setNext(DLLNode inp) {
+          DLLNode orig = _nextNode;
           this._nextNode = inp;
           return orig;
      }
 
-     public T setPrev(T inp) {
-          T orig = _prevNode;
+     public DLLNode setPrev(DLLNode inp) {
+          DLLNode orig = _prevNode;
           _prevNode = inp;
           return orig;
      }
