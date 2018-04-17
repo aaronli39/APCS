@@ -1,6 +1,6 @@
-// Aaron Li, Jackie Li, Mary Ann
+// Team LiLeyLi: Aaron Li, Jackie Li, Mary Ann
 // APCS2 pd8
-// HW35 -- 
+// HW35 --
 // 2018-04-16
 
 // import the ArrayList library
@@ -63,15 +63,14 @@ public class ALQueue<T> implements Queue<T> { // class ALQueue
           test.enqueue("the fourth");
           test.enqueue("Sheen");
 
-          System.out.println(test.peekFront());
-          System.out.println(test.dequeue());
-          System.out.println(test.peekFront());
-          System.out.println(test.peekFront());
-          System.out.println(test.dequeue());
-          System.out.println(test.peekFront());
-          System.out.println(test.peekFront());
-          System.out.println(test.dequeue());
-          System.out.println(test.peekFront());
+          System.out.println(test.peekFront()); // Charlie
+          System.out.println(test.dequeue()); // Charlie
+          System.out.println(test.peekFront()); // Brown
+          System.out.println(test.dequeue()); // Brown
+          System.out.println(test.peekFront()); // Bucket
+          System.out.println(test.dequeue()); // Bucket
+          System.out.println(test.peekFront()); // Chaplin
+          System.out.println(test.dequeue()); // Chaplin
 
           // Test 2
           ALQueue<String> Michelle = new ALQueue<String>();
