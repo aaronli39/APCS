@@ -1,0 +1,33 @@
+Aaron Li
+APCS2 pd8
+HW41 -- A Tree Grows in 251
+2018-4-29
+
+Prerequisite Information:
+     There must be two traversals given, and each traversal must be unique.
+
+Given:
+
+1) Post + Pre-order traversals:
+     Not really sure on this one. We know that the first element of the pre-order
+     traversal is the root of the entire tree, but since the post-order traversal messes
+     up the distinction between which element is a root or not, this traversal will
+     require a lot of guess work. A theory I have is perhaps double iterating through the two
+     traversals since one starts from the beginning, and the other starts from the end(root is
+     the last index).
+
+2) Pre + In-order traversals:
+     This is probably the easier traversal.
+     a) The starting(first) element of the pre-order traversal is the root of the whole tree. Search
+     or iterate the in-order traversal until you come across the root. Every element you have
+     just iterated through belongs to the left-subtree of the root. Everything to the right
+     belongs to the right subtree.
+     b) Do step a for the next element in the pre-order traversal until completed.
+
+3) In + Post-order traversals:
+     This is almost similar to the pre + in-order traversals, except it is flipped backwards.
+     a) The last element of the post-order traversal is the root of the whole tree. Search
+     the in-order traversal until you find this element. Every element you have iterated through
+     is part of the left subtree. Everything you have not yet iterated through is part of the
+     right subtree.
+     b) Repeat step a for the next-to-last element in the post-order traversal until completed.
