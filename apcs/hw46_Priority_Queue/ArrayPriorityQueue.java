@@ -41,7 +41,7 @@ public class ArrayPriorityQueue { // class ArrayPriorityQueue
           for (int i = 1; i < _data.size(); i++) {
                // if the current element is smaller than the stored element, set it
                // as the new stored element
-               if (ret.compareTo(_data.get(i)) >= 0) ret = _data.get(i);
+               if (ret.compareToIgnoreCase(_data.get(i)) >= 0) ret = _data.get(i);
           } return ret;
      }
 
